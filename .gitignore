@@ -1,6 +1,10 @@
 # Prerequisites
 *.d
 
+# Build directories
+build/
+cmake-build-*/
+
 # Object files
 *.o
 *.ko
@@ -50,3 +54,33 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# CMake files
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+
+# Database files
+*.db
+*.db-journal
+
+# Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

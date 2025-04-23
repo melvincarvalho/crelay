@@ -1,0 +1,31 @@
+   <!DOCTYPE html>
+   <html>
+   <head>
+     <title>Nostr Relay Test</title>
+   </head>
+   <body>
+     <div id="output"></div>
+     <script>
+       const socket = new WebSocket('ws://localhost:8080');
+       const output = document.getElementById('output');
+       
+       socket.onopen = () => {
+         output.innerHTML += '<p>Connected to relay</p>';
+         // Subscribe to all events
+         socket.send(JSON.stringify(["REQ", "test-sub", {}]));
+       };
+       
+       socket.onmessage = (event) => {
+         output.innerHTML += `<p>Received: ${event.data}</p>`;
+       };
+       
+       socket.onerror = (error) => {
+         output.innerHTML += `<p>Error: ${error}</p>`;
+       };
+       
+       socket.onclose = () => {
+         output.innerHTML += '<p>Connection closed</p>';
+       };
+     </script>
+   </body>
+   </html>
